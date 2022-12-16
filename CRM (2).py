@@ -32,11 +32,7 @@ my_cursor = mydb.cursor()
 # my_cursor.execute("DROP TABLE customers")
 
 # Create a table
-my_cursor.execute("CREATE TABLE IF NOT EXISTS customers (first_name VARCHAR(255), \
-	last_name VARCHAR(255), \
-	zipcode INT(10), \
-	price_paid DECIMAL(10, 2), \
-	user_id INT AUTO_INCREMENT PRIMARY KEY)")
+my_cursor.execute("")
 
 # Alter Table
 '''
@@ -77,7 +73,7 @@ def clear_fields():
 
 # Submit Customer To Database
 def add_customer():
-	sql_command = "INSERT INTO customers (first_name, last_name, zipcode, price_paid, email, address_1, address_2, city, state, country, phone, payment_method, discount_code) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+	sql_command = 
 	# %s is just a wild card entry we can susbtiute any value. We give a tuple of all the required values
 	# Values
 	values = (first_name_box.get(), last_name_box.get(), zipcode_box.get(), price_paid_box.get(), email_box.get(), address1_box.get(), address2_box.get(), city_box.get(), state_box.get(), country_box.get(), phone_box.get(), payment_method_box.get(), discount_code_box.get())
@@ -103,12 +99,8 @@ def search_customer():
 	search_customers.title("Search Customers")
 	
 	def update():
-		sql_command = """UPDATE customers SET first_name = %s, last_name = %s, zipcode = %s, price_paid = %s, email = %s, address_1 = %s, address_2 = %s, city = %s, state = %s, country = %s, phone = %s, payment_method = %s, discount_code = %s WHERE user_id = %s"""
-		first_name = first_name_box2.get()
-		last_name = last_name_box2.get()
-		zipcode = zipcode_box2.get()
-		price_paid = price_paid_box2.get()
-		email = email_box2.get()
+		sql_command = """"""
+		
 		address_1 = address1_box2.get()
 		address_2 = address2_box2.get()
 		city = city_box2.get()
@@ -124,7 +116,7 @@ def search_customer():
 
 
 	def edit_now(id, index):
-		sql2 = "SELECT * FROM customers WHERE user_id = %s"
+		sql2 = ""
 		name2 = (id, )
 		result2 = my_cursor.execute(sql2, name2)
 		result2 = my_cursor.fetchall()
@@ -226,17 +218,7 @@ def search_customer():
 		selected = drop.get()
 		sql = ""
 	
-		if selected == "Search by...":
-			test = Label(search_customers, text="Hey! You forgot to pick a drop down selection")
-			test.grid(row=2, column=0)
-		if selected == "Last Name":
-			sql = "SELECT * FROM customers WHERE last_name = %s"
-			
-		if selected == "Email Address":
-			sql = "SELECT * FROM customers WHERE email = %s"
-			
-		if selected == "Customer ID":
-			sql = "SELECT * FROM customers WHERE user_id = %s"
+		
 
 		
 		searched = search_box.get()
